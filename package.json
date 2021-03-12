@@ -1,0 +1,43 @@
+{
+  "name": "mononobe",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "Toyasoft",
+    "email": "info@toyasoft.com",
+    "url": "https://toyasoft.com"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.4",
+    "formik": "^2.2.6",
+    "graphql": "^15.5.0",
+    "next": "^10.0.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-linkify": "^1.0.0-alpha",
+    "react-relay": "^11.0.0",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.33",
+    "@types/react": "^17.0.3",
+    "babel-plugin-relay": "^11.0.0",
+    "get-graphql-schema": "^2.1.2",
+    "hygen": "^6.0.4",
+    "relay-compiler": "^11.0.0",
+    "relay-compiler-language-typescript": "^13.0.6",
+    "typescript": "^4.2.3"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "relay": "get-graphql-schema https://koqzo.herokuapp.com/graphql > schema.graphql && relay-compiler --src ./src/ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema schema.graphql --language typescript --customScalars.ISO8601DateTime=String --artifactDirectory ./src/__generated__",
+    "schema": "get-graphql-schema https://koqzo.herokuapp.com/graphql > schema.graphql",
+    "g:c": "hygen component add",
+    "g:p": "hygen page add",
+    "g:m": "hygen mutation add",
+    "g:q": "hygen query add"
+  }
+}
